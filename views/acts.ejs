@@ -1,49 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= sName %></title>
+    <title>
+        <%= sName %>
+    </title>
+    <link rel="stylesheet" href="acts.css">
 </head>
+
 <body>
-    <h1><%= name %></h1>
+    <header>
+        <h1 class="name">
+            <%= name %>
+        </h1>
+    </header>
 
-    <ul>
-        <% jsonData.forEach(function(record) { %>
-            <li>
-                
-                <% if (record.chapter) { %>
-                    <p>Chapter: <%= record.chapter %></p>
-                <% } %>
+    <main>
+        <ol>
+            <% jsonData.forEach(function(record) { %>
+                <li class="list_item">
 
-                <% if (record.chapter_title) { %>
-                    <p>Chapter Title: <%= record.chapter_title %></p>
-                <% } %>
+                    <% if (record.chapter) { %>
+                        <p>Chapter: <%- record.chapter %>
+                        </p>
+                        <hr class="partition">
+                    <% } %>
 
-                <% if (record.section) { %>
-                    <p>Section: <%= record.section %></p>
-                <% } %>
-                
-                <% if (record.title) { %>
-                    <p>Chapter Title: <%= record.title %></p>
-                <% } %>
+                    <% if (record.chapter_title) { %>
+                    <p>Chapter Title: <%- record.chapter_title %>
+                    </p>
+                    <hr class="partition">
+                    <% } %>
 
-                <% if (record.description) { %>
-                    <p>Description: <%= record.description %></p>
-                <% } %>
+                    <% if (record.section) { %>
+                        <p>Section: <%- record.section %>
+                        </p>
+                        <hr class="partition">
+                    <% } %>
 
-                <% if (record.section_title) { %>
-                    <p>Section Title: <%= record.section_title %></p>
-                <% } %>
+                    <% if (record.title) { %>
+                        <p>Chapter Title: <%- record.title %>
+                        </p>
+                        <hr class="partition">
+                    <% } %>
 
-                <% if (record.section_desc) { %>
-                    <p>Section Description: <%= record.section_desc %></p>
-                <% } %>
+                    <% if (record.description) { %>
+                        <p>Description: <%- record.description.replace(/\n/g, '<br>') %>
+                        </p>
+                    <!-- <hr class="partition"> -->
+                    <% } %>
+
+                    <% if (record.section_title) { %>
+                        <p>Section Title: <%- record.section_title %>
+                        </p>
+                        <hr class="partition">
+                    <% } %>
+
+                    <% if (record.section_desc) { %>
+                        <p>Section Description: <%- record.section_desc.replace(/\n/g, '<br>')
+                                %>
+                        </p>
+                        <!-- <hr class="partition"> -->
+                    <% } %>
+                </li>
+                <div class="horizontal_line">
+
+                </div>
+                <% }) %>
+
+        </ol>
+    </main>
+
+    <footer>
+        <h1>All rights reserved</h1>
+    </footer>
 
 
-
-            </li>
-        <% }) %>
-    </ul>
 </body>
+
 </html>
