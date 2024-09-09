@@ -38,7 +38,7 @@ app.get('/:laws', async (req, res) => {
                 }
                 res.render('acts.ejs', obj)
                 break
-
+                
             case 'crpc':
                 records = await crpc.find({})
                 obj = {

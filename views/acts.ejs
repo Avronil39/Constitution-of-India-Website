@@ -1,25 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <%=name %>
-    </title>
+    <title><%= sName %></title>
 </head>
-
 <body>
-    <h1>
-        <%= name%>
-    </h1>
-    <div class="heading">
-        <ol>
-            <% Object.keys(jsonData).forEach((att)=>{ %>
-                <li> <%= att %> </li>
-            <% }) %>
-        </ol>
-    </div>
-</body>
+    <h1><%= name %></h1>
 
+    <ul>
+        <% jsonData.forEach(function(record) { %>
+            <li>
+                
+                <% if (record.chapter) { %>
+                    <p>Chapter: <%= record.chapter %></p>
+                <% } %>
+
+                <% if (record.chapter_title) { %>
+                    <p>Chapter Title: <%= record.chapter_title %></p>
+                <% } %>
+
+                <% if (record.section) { %>
+                    <p>Section: <%= record.section %></p>
+                <% } %>
+                
+                <% if (record.title) { %>
+                    <p>Chapter Title: <%= record.title %></p>
+                <% } %>
+
+                <% if (record.description) { %>
+                    <p>Description: <%= record.description %></p>
+                <% } %>
+
+                <% if (record.section_title) { %>
+                    <p>Section Title: <%= record.section_title %></p>
+                <% } %>
+
+                <% if (record.section_desc) { %>
+                    <p>Section Description: <%= record.section_desc %></p>
+                <% } %>
+
+
+
+            </li>
+        <% }) %>
+    </ul>
+</body>
 </html>
